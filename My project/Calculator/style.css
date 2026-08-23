@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+/* =========================    CALCULATOR ========================= */
+
+.container {
+  width: 100%;
+  max-width: 450px;
+  position: relative;
+  border: 1px solid #d8d8d8;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #cfcfcf;
+  padding: 16px;
+}
+
+/* =========================    DISPLAY ========================= */
+
+.calculator-display {
+  width: 100%;
+  min-height: 100px;
+
+  border: 1px solid #e7e7e4;
+  border-radius: 10px;
+  background-color: #d3cbcb1f;
+
+  padding: 10px;
+
+  /* Everything starts from bottom */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  /* Important for long text */
+  overflow: hidden;
+
+  text-align: right;
+}
+
+/* =========================    EXPRESSION ========================= */
+
+.display-1 {
+  width: 100%;
+
+  /* Start from right */
+  text-align: right;
+
+  /* Bottom alignment */
+  margin-top: auto;
+
+  color: #444;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 1.2;
+
+  /* Long expression can wrap */
+  overflow-wrap: anywhere;
+  word-break: break-word;
+
+  height: auto;
+}
+/* =========================   INPUT ========================= */
+
+.display-2 {
+  width: 100%;
+
+  /* Start from right */
+  text-align: right;
+
+  color: #787879;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.3;
+
+  /* Allow multiple lines */
+  overflow-wrap: anywhere;
+  word-break: break-word;
+
+  height: auto;
+  min-height: 26px;
+
+  /* Keep cursor visible */
+  white-space: normal;
+}
+
+/* =========================    CURSOR  ========================= */
+
+.cursor {
+  display: inline-block;
+
+  width: 2px;
+  height: 23px;
+
+  margin-left: 3px;
+
+  background-color: #000;
+
+  vertical-align: middle;
+
+  animation: blink 900ms infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+/* =========================    BUTTONS  ========================= */
+
+.calculator-btn {
+  display: flex;
+  flex-wrap: wrap;
+
+  width: 100%;
+
+  padding: 10px 0;
+
+  gap: 5px;
+}
+
+.calculator-btn .btn {
+  width: 24%;
+
+  text-align: center;
+
+  padding: 15px 10px;
+
+  font-size: 20px;
+  font-weight: 800;
+
+  border: 1px solid #dedcde;
+
+  margin: 10px 0;
+
+  border-radius: 10px;
+
+  color: #3b3b3b;
+
+  cursor: pointer;
+
+  user-select: none;
+}
+.calculator-btn .btn:hover,
+.calculator-btn .btn:active {
+  background-color: #04395ec7;
+  color: #fff;
+}
+.w-50 {
+  width: 49% !important;
+}
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+.w-50 {
+  width: 49% !important;
+}
+.container {
+  position: relative;
+  border: 1px solid #d8d8d8;
+  background-color: #fff;
+  border-radius: 10px;
+  max-width: 450px;
+  min-height: 200px;
+  box-shadow: 0px 0px 5px #cfcfcf;
+  padding: 16px;
+}
+.calculator-display {
+  width: 100%;
+  border: 1px solid #e7e7e4;
+  min-height: 100px;
+  border-radius: 10px;
+  background-color: #d3cbcb1f;
+  text-align: right;
+  padding: 10px;
+  overflow-wrap: break-word;
+}
+.display-1 {
+  width: 100%;
+  height: 70%;
+  align-content: end;
+  padding-bottom: 5px;
+  color: #444444;
+  font-size: 25px;
+  font-weight: bold;
+}
+.display-2 {
+  height: 30%;
+  width: 100%;
+  color: #787879;
+  font-size: 20px;
+  font-weight: bold;
+}
+.cursor {
+  width: 1px;
+  height: 100%;
+  display: inline-block;
+  background-color: #000;
+  margin: auto;
+  transition: 2s ease-in opacity;
+  animation: 900ms infinite blink;
+}
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.calculator-btn {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 10px 0;
+  gap: 5px;
+}
+.calculator-btn .btn {
+  width: 24%;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 20px;
+  font-weight: 800;
+  border: 1px solid #dedcde;
+  margin: 10px 0;
+  border-radius: 10px;
+  color: #3b3b3b;
+  cursor: pointer;
+}
+.calculator-btn .btn:hover,
+.calculator-btn .btn:active {
+  background-color: #04395ec7;
+  color: #fff;
+} */
