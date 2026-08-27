@@ -17,5 +17,13 @@
     "prefix": "fcl",
     "body": ["function log(...value) { console.log(...value);}"],
     "description": "Log output to console"
+  },
+  "Title": {
+    "scope": "javascript,typescript",
+    "prefix": "tc",
+    "body": [
+      "/* --------------------------  ------------------------------- */"
+    ],
+    "description": "Title Placeholder"
   }
 }
