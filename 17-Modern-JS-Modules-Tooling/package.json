@@ -1,0 +1,19 @@
+{
+  "name": "17-modern-js-modules-tooling",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "logesh",
+  "type": "commonjs",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "@parcel/source-map": "^2.1.1",
+    "lodash-es": "^4.18.1"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  }
+}
