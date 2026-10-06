@@ -1,45 +1,52 @@
-let btns = document.querySelectorAll(".btn");
+let btn = document.querySelector(".calculator-btn");
 let experssion = document.querySelector(".experssion");
 let input = document.querySelector(".input");
 
-let experssionInput = [];
+let inputExperssion = [];
 let totalValue = 0;
-btns.forEach((btn) => {
-  btn.addEventListener("click", function (e) {
-    console.log(this.dataset);
-    const { key: type, value } = this.dataset;
-    // clear,delete,operator,number,dot;
+let operators = ["+", "-", "*", "/", "%"];
+btn.addEventListener("click", function (e) {
+  clickedBtn = e.target.closest(".btn");
+  if (!clickedBtn) return;
+  const { key: type, value } = clickedBtn.dataset;
+  //type ->  clear,delete,operator,number,dot;
 
-    switch (type) {
-      case "number":
-        input.textContent = input.textContent + value;
-        console.log(input.textContent.length);
-        break;
-      case "operator":
-        let number = Number(input.textContent);
-        experssionInput.push(number);
-        experssionInput.push(value);
-        calculate();
-        break;
-      case "dot":
-        input.textContent = input.textContent + 1;
-        break;
-      case "clear":
-        input.textContent = input.textContent + 1;
-        break;
-      case "delete":
-        experssionInput.pop();
-        display();
-        break;
+  if (type === "dot") {
+    !Array.from(input.textContent).includes(".") &&
+      (input.textContent = `${input.textContent}.`);
+    return;
+  }
+  if (type === "clear") {
+    clear();
+    return;
+  }
+  if (type === "delete") {
+    inputDelete();
+    return;
+  }
+  if (
+    (type === typeof +input.textContent || input.textContent === "") &&
+    !operators.includes(input.textContent) &&
+    value !== "="
+  ) {
+    input.textContent = input.textContent + value;
+  } else {
+    if (type === "operator") {
+      !operators.includes(input.textContent) && append(+input.textContent);
+    } else {
+      append(input.textContent);
     }
-  });
+    value === "=" ? calculate() : (input.textContent = value);
+  }
 });
-
+const append = function (value) {
+  inputExperssion.push(value);
+  displayInputExpression();
+};
 const calculate = function () {
-  let operators = ["+", "-", "*", "/", "%"];
-  let currentoperator = "+";
-  if (experssionInput.length > 3) {
-    for (const item of experssionInput) {
+  let currentoperator = "";
+  if (inputExperssion.length >= 3) {
+    for (const item of inputExperssion) {
       if (operators.includes(item)) {
         currentoperator = item;
       } else {
@@ -65,15 +72,33 @@ const calculate = function () {
             currentoperator = "";
             break;
           default:
+            totalValue += item;
             currentoperator = "";
             break;
         }
       }
+      console.log(inputExperssion, item, "cur oper : ", currentoperator);
+      console.log("total : ", totalValue);
     }
   }
   display();
 };
+const displayInputExpression = function () {
+  experssion.innerHTML = inputExperssion.join("");
+};
+const clear = function () {
+  const markUp = '<span class="cursor"></span>';
+  input.innerHTML = "";
+  experssion.innerHTML = "";
+  input.insertAdjacentHTML("afterbegin", markUp);
+  inputExperssion = [];
+  totalValue = 0;
+};
+const inputDelete = function () {
+  input.textContent = Array.from(input.textContent).slice(0, -1).join("");
+};
 const display = function () {
-  experssion.innerHTML = experssionInput.join("");
-  input.textContent = "";
+  input.innerHTML = totalValue;
+  inputExperssion = [];
+  totalValue = 0;
 };
