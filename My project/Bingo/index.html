@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="module" src="controller.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="bingo-header">
+        <h4>B I N G O</h4>
+        <p>Match 5 in a row horizontally, vertically, or diagonally to win!</p>
+      </div>
+      <div class="bingo-container">
+        <div class="container-header">
+          <div class="bingo-marked-number">
+            <div class="number">0</div>
+            <div class="time seconds">0s</div>
+          </div>
+
+          <button class="start-btn">Start</button>
+          <button class="next-btn hidden">Next</button>
+          <button class="restart">Restart</button>
+        </div>
+        <div class="container-body"></div>
+        <p>
+          Note: A number can only be marked or unmarked within 10 seconds of
+          being displayed.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
